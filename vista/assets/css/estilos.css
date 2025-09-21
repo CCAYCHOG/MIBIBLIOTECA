@@ -1,0 +1,136 @@
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+:root{
+      --brand: #0d6efd; /* azul bootstrap */
+      --brand-2:#0b5ed7;
+      --ink:#0f172a; /* slate-900 */
+}
+
+body{ background: #0b0f1a; }
+    .navbar{ background: #0b0f1a; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .app-shell{ display:grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+    @media (max-width: 991.98px){ .app-shell{ grid-template-columns: 1fr; } }
+    .sidebar{ background: #0b0f1a; border-right:1px solid rgba(255,255,255,.08); }
+    .sidebar .list-group-item{ background: transparent; color:#e2e8f0; border:0; }
+    .sidebar .list-group-item.active{ background: rgba(13,110,253,.15); color:#fff; }
+    .content{ padding: 1.25rem; }
+    .card{ background: #0e1424; border:1px solid rgba(255,255,255,.08); }
+    .form-section-title{ font-size:.9rem; text-transform:uppercase; letter-spacing:.06em; color:#8aa0c7; margin-top:1rem; }
+    .table thead th{ position:sticky; top:0; background:#0e1424; z-index:1; }
+    .btn-brand{ background: var(--brand); border-color: var(--brand); }
+    .btn-brand:hover{ background: var(--brand-2); border-color: var(--brand-2); }
+    .searchbar{ max-width: 420px; }
+    .badge-pill{ border-radius: 2rem; }
+
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(201, 238, 255, 0.9); /* 👈 fondo blanco con 90% opacidad */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Contenedor */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 15, 26, 0.95); /* 👈 mismo tono del body con transparencia */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px); /* efecto sutil de vidrio esmerilado */
+}
+
+/* Contenedor */
+.logo-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Logo */
+.logo-loader {
+  width: 70%;
+  max-width: 90px;
+  animation: bounce 1.5s infinite;
+  z-index: 2;
+}
+
+/* Círculo animado alrededor */
+.circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 4px solid var(--brand); /* azul principal */
+  border-top-color: transparent;  /* estilo spinner elegante */
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+  z-index: 1;
+  opacity: 0.8; /* suavizado */
+}
+
+/* Animaciones */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .logo-container {
+    width: 80px;
+    height: 80px;
+  }
+  .logo-loader {
+    max-width: 60px;
+  }
+}
+
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+/* Estilos para el Autocomplete de jQuery UI */
+.ui-autocomplete {
+    background: #0e1424; /* igual que las cards */
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: .5rem;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 2000 !important; /* aseguramos que aparezca sobre el modal */
+    padding: .25rem 0;
+}
+
+.ui-autocomplete .ui-menu-item {
+    padding: .5rem .75rem;
+    font-size: 0.9rem;
+    color: #e2e8f0; /* texto claro */
+    cursor: pointer;
+}
+
+.ui-autocomplete .ui-menu-item:hover,
+.ui-autocomplete .ui-menu-item.ui-state-active {
+    background: var(--brand); /* azul bootstrap */
+    color: #fff;
+}
